@@ -6,6 +6,7 @@ require! <[
   ./reindex
   ./bounds
   ./svg
+  ../svg/css
 ]>
 
 module.exports = read-json
@@ -31,5 +32,19 @@ module.exports = read-json
   delete out.base
   out = path.format out
   console.log \Writing: out
-  html = svg.open(data) + svg.tags(data) + svg.close!
+  html = """
+  <!DOCTYPE html>
+  <html>
+  <head>
+  <style>
+  #{css}
+  </style>
+  </head>
+  <body>
+  #{svg.open data}
+  #{svg.tags data}
+  #{svg.close!}
+  </body>
+  </html>
+  """
   fs.writeFileSync out, html
