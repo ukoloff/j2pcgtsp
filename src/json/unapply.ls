@@ -10,11 +10,27 @@ function extract raw
   for c in raw.Contours
     contour c
 
-  !function contour c
+  !function contour c, parent
+    groups.push me =
+      id: c.Index
+      up: if parent
+        parent.up.concat parent
+      else
+        []
+      points: []
+      groups: []
+
+    if parent
+      parent.groups.push me
+
     for p in c.Points or []
-      0
+      points.push do
+        id: p.GlobalIndex
+        x: p.X
+        y: p.Y
+        group: me
     for c in c.Nested-contours or []
-      contour c
+      contour c, me
 
   # return
   start:
