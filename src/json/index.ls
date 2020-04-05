@@ -5,13 +5,11 @@ require! <[
   ./unapply
   ./reindex
   ./bounds
-  ./svg
-  ../svg/css
 ]>
 
 module.exports = read-json
 
-!function read-json filename
+function read-json filename
   filename = path.resolve filename
   unless path.extname filename
     filename += \.json
@@ -24,27 +22,4 @@ module.exports = read-json
   reindex data
   bounds data
 
-  console.log "Found: #{data.points.length}/#{data.groups.length} points/groups"
-  # console.log \Bounds: JSON.stringify data.bounds
-
-  out = path.parse filename
-  out.ext = \.html
-  delete out.base
-  out = path.format out
-  console.log \Writing: out
-  html = """
-  <!DOCTYPE html>
-  <html>
-  <head>
-  <style>
-  #{css}
-  </style>
-  </head>
-  <body>
-  #{svg.open data}
-  #{svg.tags data}
-  #{svg.close!}
-  </body>
-  </html>
-  """
-  fs.writeFileSync out, html
+  data
