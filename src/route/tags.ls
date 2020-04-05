@@ -15,7 +15,7 @@ function tags route, data
     result += """
 
     <circle class="route" cx="#{p.x}" cy="#{p.y}"><title>Point ##{p.id or '-'}
-    Group ##{p.group?.id or '-'}
+    Group ##{p.group?.id or '-'} (#{p.group?.points?.length or 0} points)
     X: #{p.x}
     Y: #{p.y}
     </title></circle>
