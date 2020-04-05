@@ -25,10 +25,12 @@ path.part:hover {
   animation: dash 1s linear infinite;
 }
 
-@keyframes dash
-  from
+@keyframes dash {
+  from {
     stroke-dashoffset: 0%;
-  to
+  }
+  to {
     stroke-dashoffset: -2%;
-
+  }
+}
 """
