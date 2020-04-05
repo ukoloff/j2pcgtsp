@@ -1,0 +1,25 @@
+
+--------- Problem Data ------------
+Instance Name      : 8877-2.gtsp
+Number of Vertices : 83
+Number of Sets     : 32
+Initial Tour       : Random
+Maximum Removals   : 10
+Trials             : 5
+Restart Attempts   : 3
+Rate of Adaptation : 0.5
+Prob of Reopt      : 1.0
+Maximum Time       : 360
+Tour Budget        : None
+-----------------------------------
+
+ |1     2     3     4     5     |  Cost = 8844  Time = 1.1 sec       |1=====2=====3=====4=====5=====|  Cost = 7631  Time = 1.1 sec      
+
+--------- Tour Summary ------------
+Cost              : 7631
+Total Time        : 1.1 sec
+Solver Timeout?   : false
+Tour is Feasible? : true
+Output File       : None
+Tour Ordering     : [27, 23, 69, 68, 34, 30, 1, 58, 78, 77, 76, 60, 80, 82, 81, 72, 19, 14, 55, 51, 71, 70, 74, 73, 67, 65, 45, 40, 63, 10, 83, 64]
+-----------------------------------

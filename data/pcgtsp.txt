@@ -1,0 +1,77 @@
+https://www.fcc.chalmers.se/external/PCGTSPLIB/
+
+Hello, welcome to the PCGTSPLIB web.
+
+The PCGTSP format uses known elements from the SOP and GTSP formats. Some new data entries are also introduced and are described below.
+
+NAME: File name, same as before.
+
+TYPE: Always PCGTSP
+
+COMMENT: Name of authors
+
+DIMENSION: Same as TSP, SOP and GTSP (number of nodes/vertices)
+
+GROUPS: Same as GTSP (number of groups/clusters/node sets)
+
+EDGE_WEIGHT_TYPE : Same as TSP, SOP, and GTSP, only EXPLICIT is used
+
+EDGE_WEIGHT_FORMAT : Same as TSP, SOP, and GTSP, only FULL_MATRIX is used
+
+NODE_WEIGHT_SECTION is a new entry, followed on the new line by an explicit enumeration of node weights/times.
+
+EDGE_WEIGHT_SECTION is the same as for SOP although matrix entries with -1 need to be treated slightly differently.
+For PCGTSP, precedence constraints are defined between groups, not nodes.
+Therefore, a -1 entry is given for each node pair (n1,n2) where the corresponding group pair (g1,g2) are subject to the constraint that g2 must precede g1.
+
+NODE_GROUP_SECTION is identical to the GTSP format.
+
+NODE_AGENT_SECTION is a new entry, followed by a list of node agents on the next line. For instance, given the list
+1 1 2 2 1
+node 1, 2, and 5 belong to agent 1 while node 3 and 4 belong to agent 2.
+
+START_GROUP_SECTION is a new entry, followed by the start group number.
+
+EOF ends the file as usual.
+
+ALL_INSTANCES
+br17.10
+br17.12
+ESC07
+ESC12
+ESC25
+ESC47
+ESC63
+ESC78
+ft53.1
+ft53.2
+ft53.3
+ft53.4
+ft70.1
+ft70.2
+ft70.3
+ft70.4
+kro124p.1
+kro124p.2
+kro124p.3
+kro124p.4
+p43.1
+p43.2
+p43.3
+p43.4
+prob.42.1
+prob.100.1
+rbg048a
+rbg050c
+rbg109a
+rbg150a
+rbg174a
+rbg253a
+rbg323a
+rbg341a
+rbg358a
+rbg378a
+ry48p.1
+ry48p.2
+ry48p.3
+ry48p.4
