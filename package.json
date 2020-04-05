@@ -5,8 +5,9 @@
   "description": "Toolbox for JSON / PCGTSP interconnection",
   "main": "./dst",
   "scripts": {
-    "test": "lsc -co dst src",
-    "start": "lsc -cwo dst src"
+    "run": "node .",
+    "test": "lsc -cbo dst src",
+    "start": "lsc -cbwo dst src"
   },
   "repository": {
     "type": "git",
