@@ -10,5 +10,8 @@ function tags data
   for g, i in data.groups
     result += "\n" + tag g.points, do
       class: \part
-      title: g.id
+      title: """
+        Group ##{g.id}
+        Points: #{g.points.length}
+        """
   result

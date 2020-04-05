@@ -7,5 +7,11 @@ function tag points, attributes = {}
     attrs += """ #{k}="#{v}"
     """
   """
-  <path#{attrs} d="#{path points}"/>
+  <path#{attrs} d="#{path points}">
+  #{
+    if attributes.title
+      "<title>#{attributes.title}</title>"
+    else
+      ""
+  }</path>
   """

@@ -9,8 +9,26 @@ svg {
   padding: 1ex;
 }
 
-path.part {
-  fill: red;
-  stroke: blue;
+path {
+  stroke-width: 0.16%;
+  fill-rule: nonzero;
 }
+
+path.part {
+  fill: white;
+  stroke: black;
+}
+
+path.part:hover {
+  fill: yellow;
+  stroke-dasharray: 1%;
+  animation: dash 1s linear infinite;
+}
+
+@keyframes dash
+  from
+    stroke-dashoffset: 0%;
+  to
+    stroke-dashoffset: -2%;
+
 """
