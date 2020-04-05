@@ -105,3 +105,4 @@ dist
 
 /package-lock.json
 /dst
+/data/*.html

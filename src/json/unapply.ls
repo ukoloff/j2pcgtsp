@@ -24,11 +24,13 @@ function extract raw
       parent.groups.push me
 
     for p in c.Points or []
-      points.push do
+      points.push pt =
         id: p.GlobalIndex
         x: p.X
         y: p.Y
         group: me
+      me.points.push pt
+
     for c in c.Nested-contours or []
       contour c, me
 
