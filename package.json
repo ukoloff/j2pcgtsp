@@ -3,11 +3,11 @@
   "version": "1.0.0",
   "private": true,
   "description": "Toolbox for JSON / PCGTSP interconnection",
-  "main": "./dst",
+  "main": "./j2gtsp",
   "scripts": {
     "run": "node .",
-    "test": "lsc -cbo dst src",
-    "start": "lsc -cbwo dst src"
+    "test": "lsc -cbo j2gtsp src",
+    "start": "lsc -cbwo j2gtsp src"
   },
   "repository": {
     "type": "git",
