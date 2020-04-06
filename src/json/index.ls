@@ -1,6 +1,4 @@
 require! <[
-  fs
-  path
   ./validate
   ./unapply
   ./reindex
@@ -9,13 +7,7 @@ require! <[
 
 module.exports = read-json
 
-function read-json filename
-  filename = path.resolve filename
-  unless path.extname filename
-    filename += \.json
-
-  console.log \Reading: filename
-  raw = JSON.parse fs.readFileSync filename
+function read-json raw
   validate raw
 
   data = unapply raw
