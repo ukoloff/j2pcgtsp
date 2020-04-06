@@ -1,0 +1,33 @@
+{
+  "name": "j2pcgtsp",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Toolbox for JSON / PCGTSP interconnection",
+  "main": "./j2gtsp",
+  "scripts": {
+    "run": "node .",
+    "test": "lsc -cbo j2gtsp src",
+    "start": "lsc -cbwo j2gtsp src"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ukoloff/j2pcgtsp.git"
+  },
+  "keywords": [
+    "json",
+    "GTSP",
+    "PCGTSP"
+  ],
+  "author": {
+    "name": "Stas Ukolov",
+    "email": "ukoloff@gmail.com"
+  },
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ukoloff/j2pcgtsp/issues"
+  },
+  "homepage": "https://github.com/ukoloff/j2pcgtsp",
+  "devDependencies": {
+    "livescript": "^1.6.0"
+  }
+}
