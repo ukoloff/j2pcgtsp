@@ -1,8 +1,8 @@
 require! <[
   fs
   path
-  ./json
-  ./json/svg
+  ./discrete
+  ./discrete/svg
   ./svg/css
   ./route
   ./route/tags
@@ -16,7 +16,7 @@ unless path.extname fileSrc
   fileSrc += \.json
 
 console.log \Reading: fileSrc
-data = json JSON.parse fs.readFileSync fileSrc
+data = discrete JSON.parse fs.readFileSync fileSrc
 console.log "Found: #{data.points.length}/#{data.groups.length} points/groups"
 
 if process.argv.length > 3
