@@ -10,8 +10,6 @@ module.exports = read-json
 function read-json raw
   validate raw
 
-  data = unapply raw
-  reindex data
-  bounds data
-
-  data
+  unapply raw
+    reindex ..
+    bounds ..
