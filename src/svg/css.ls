@@ -14,14 +14,29 @@ path {
   fill-rule: nonzero;
 }
 
+path.DBS {
+  fill: lime;
+  stroke: blue;
+}
+
+path.DBS:first-of-type {
+  fill: silver;
+}
+
+path.DBS:hover {
+  stroke-dasharray: 1%;
+  animation: dash 1s linear infinite;
+}
+
 path.part {
   fill: white;
-  fill-opacity: 50%;
+  fill-opacity: 0%;
   stroke: black;
 }
 
 path.part:hover {
   fill: yellow;
+  fill-opacity: 50%;
   stroke-dasharray: 1%;
   animation: dash 1s linear infinite;
 }

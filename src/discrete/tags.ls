@@ -1,9 +1,6 @@
-require! <[ ../svg ../svg/tag ]>
+require! <[ ../svg/tag ]>
 
-module.exports <<< {open, svg.close, tags}
-
-function open data
-  svg.open data.bounds
+module.exports = tags
 
 function tags data
   result = ""

@@ -1,0 +1,24 @@
+require! <[
+  assert
+  ./unapply
+  ./reindex
+  ./bounds
+]>
+
+module.exports = read-json
+read-json.success = success
+
+function read-json txt
+  raw = JSON.parse txt
+  validate raw
+
+  unapply raw
+    reindex ..
+    bounds ..
+
+!function validate raw
+  assert raw.TaskData
+  assert raw.Contours
+
+!function success data
+  console.log "Found: #{data.points.length}/#{data.groups.length} points/groups"
