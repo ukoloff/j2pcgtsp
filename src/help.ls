@@ -1,6 +1,7 @@
-require! <[
+require! {
   path
-]>
+  \../package : {homepage}
+}
 
 console.log """
   Visualisation for GTSP tasks / solutions.
@@ -12,7 +13,7 @@ console.log """
 
   NOTE: target HTML file will be silently overwritten!
 
-  See: #{require \../package .homepage}
+  See: #{homepage}
   """
 
 process.exit!
