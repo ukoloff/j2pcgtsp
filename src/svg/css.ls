@@ -14,6 +14,14 @@ path {
   fill-rule: nonzero;
 }
 
+path.DBS {
+  fill: yellow;
+  stroke: blue;
+}
+
+path.DBS:first {
+  fill: none;
+}
 path.part {
   fill: white;
   fill-opacity: 0%;
