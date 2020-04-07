@@ -16,12 +16,13 @@ path {
 
 path.part {
   fill: white;
-  fill-opacity: 50%;
+  fill-opacity: 0%;
   stroke: black;
 }
 
 path.part:hover {
   fill: yellow;
+  fill-opacity: 50%;
   stroke-dasharray: 1%;
   animation: dash 1s linear infinite;
 }
