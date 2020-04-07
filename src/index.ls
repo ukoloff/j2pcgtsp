@@ -8,28 +8,45 @@ require! <[
   ./route/tags
 ]>
 
+formats =
+  discrete:
+    parser: discrete
+  route:
+    parser: route
+
 unless  2 < process.argv.length < 5
   require \./help
 
-fileSrc = path.resolve process.argv[2]
-unless path.extname fileSrc
-  fileSrc += \.json
+for file-name in process.argv.slice 2
+  console.log \Reading: file-name = path.resolve file-name
+  txt = fs.readFileSync file-name, \utf8
 
-console.log \Reading: fileSrc
-data = discrete JSON.parse fs.readFileSync fileSrc
-console.log "Found: #{data.points.length}/#{data.groups.length} points/groups"
+  ok = false
+  for , format of formats
+    try
+      data = format.parser txt
+      format.parser.success data
+      format.data = data
+      format.file-name = file-name
+      ok = true
+      break
+  unless ok
+    console.log "Unknown file format!"
+    process.exit!
 
-if process.argv.length > 3
-  fileDst = path.resolve process.argv[3]
-  console.log \Reading: fileDst
-  seq = route fs.readFileSync fileDst, \utf8
-  console.log "Found: #{seq.length} route point(s)"
+unless formats.discrete.data
+  console.log "GTSP problem[.json] not found!"
+  process.exit!
 
-out = path.parse fileDst || fileSrc
+for , format of formats
+  out? = format.file-name
+
+out = path.parse out
 out.ext = \.html
 delete out.base
 out = path.format out
 console.log \Writing: out
+
 html = """
 <!DOCTYPE html>
 <html>
@@ -39,9 +56,9 @@ html = """
 </style>
 </head>
 <body>
-#{svg.open data}
-#{svg.tags data}
-#{if seq then tags seq, data else ""}
+#{svg.open formats.discrete.data}
+#{svg.tags formats.discrete.data}
+#{if formats.route.data then tags formats.route.data, formats.discrete.data else ""}
 #{svg.close!}
 </body>
 </html>

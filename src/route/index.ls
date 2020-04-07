@@ -3,6 +3,7 @@
 #
 
 module.exports = read
+read.success = success
 
 function read text
   if /\bTour Ordering\s*:\s*\[([\s\d,]*)\]/.exec text
@@ -11,4 +12,7 @@ function read text
       .filter -> it # .compact!
       .map Number
   else
-    []
+    throw Error "GTSP route not found"
+
+function success data
+  console.log "Found: #{data.length} route point(s)"
