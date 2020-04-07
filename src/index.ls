@@ -3,10 +3,9 @@ require! <[
   path
   ./dbs
   ./discrete
-  ./discrete/svg
+  ./svg
   ./svg/css
   ./route
-  ./route/tags
 ]>
 
 formats =
@@ -41,6 +40,11 @@ unless formats.discrete.data
   console.log "GTSP problem[.json] not found!"
   process.exit!
 
+bounds = formats.discrete.data.bounds
+if formats.dbs.data
+  require! \./dbs/bounds : dbs-bounds
+  bounds = dbs-bounds.union bounds, dbs-bounds formats.dbs.data
+
 for , format of formats
   out? = format.file-name
 
@@ -59,9 +63,11 @@ html = """
 </style>
 </head>
 <body>
-#{svg.open formats.discrete.data}
-#{svg.tags formats.discrete.data}
-#{if formats.route.data then tags formats.route.data, formats.discrete.data else ""}
+#{svg.open bounds}
+#{require \./discrete/tags <| formats.discrete.data}
+#{if formats.route.data
+    (require \./route/tags) formats.route.data, formats.discrete.data
+  else ""}
 #{svg.close!}
 </body>
 </html>
