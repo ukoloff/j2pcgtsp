@@ -12,7 +12,10 @@ function part2svg part
   tag do
     part.paths.map path2svg .join ''
     class: \DBS
-    title: "Part: #{part.partid}"
+    title: """
+      Part: #{part.partid}
+      Contours: #{part.paths.length}
+      """
 
 function path2svg path
   result = ''

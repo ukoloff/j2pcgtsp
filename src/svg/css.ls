@@ -15,13 +15,19 @@ path {
 }
 
 path.DBS {
-  fill: yellow;
+  fill: lime;
   stroke: blue;
 }
 
-path.DBS:first {
-  fill: none;
+path.DBS:first-of-type {
+  fill: silver;
 }
+
+path.DBS:hover {
+  stroke-dasharray: 1%;
+  animation: dash 1s linear infinite;
+}
+
 path.part {
   fill: white;
   fill-opacity: 0%;
