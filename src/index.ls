@@ -1,6 +1,7 @@
 require! <[
   fs
   path
+  ./dbs
   ./discrete
   ./discrete/svg
   ./svg/css
@@ -9,12 +10,14 @@ require! <[
 ]>
 
 formats =
+  dbs:
+    parser: dbs
   discrete:
     parser: discrete
   route:
     parser: route
 
-unless  2 < process.argv.length < 5
+unless  2 < process.argv.length < 6
   require \./help
 
 for file-name in process.argv.slice 2
