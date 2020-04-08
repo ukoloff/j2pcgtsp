@@ -20,3 +20,4 @@ function tags route, data
     Y: #{p.y}
     </title></circle>
     """
+  result

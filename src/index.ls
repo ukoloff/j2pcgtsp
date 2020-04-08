@@ -27,7 +27,7 @@ for file-name in process.argv.slice 2
   for , format of formats
     try
       data = format.parser txt
-      format.parser.success data
+      console.log \Found: format.parser.success data
       format.data = data
       format.file-name = file-name
       ok = true

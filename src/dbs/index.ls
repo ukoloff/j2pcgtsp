@@ -10,11 +10,11 @@ function read-DBS txt
   JSON.parse txt
     assert ..length
 
-!function success dbs
+function success dbs
   names = dbs.map (.partid)
   count = names.length
   names = unique names
-  console.log "Found #{count} parts: #{
+  "#{count} parts: #{
     names.slice 0 3 .join ', '}#{
     if names.length > 3 then '...' else '.'}"
 
