@@ -15,4 +15,4 @@ function read text
     throw Error "GTSP route not found"
 
 function success data
-  console.log "Found: #{data.length} route point(s)"
+  "#{data.length} route point(s)"

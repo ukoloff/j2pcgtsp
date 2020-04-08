@@ -27,7 +27,7 @@ for file-name in process.argv.slice 2
   for , format of formats
     try
       data = format.parser txt
-      format.parser.success data
+      console.log \Found: format.parser.success data
       format.data = data
       format.file-name = file-name
       ok = true
@@ -41,9 +41,6 @@ unless formats.discrete.data
   process.exit!
 
 bounds = formats.discrete.data.bounds
-if formats.dbs.data
-  require! \./dbs/bounds : dbs-bounds
-  bounds = dbs-bounds.union bounds, dbs-bounds formats.dbs.data
 
 for , format of formats
   out? = format.file-name

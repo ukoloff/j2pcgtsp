@@ -35,7 +35,7 @@
 ## Запуск
 
 ```bash
-node j2gtsp файл.dbs.json файл.json [файл.result.txt]
+node j2gtsp [файл.dbs.json] файл.json [файл.result.txt]
 ```
 где
   - `node` - путь до node[.exe]
