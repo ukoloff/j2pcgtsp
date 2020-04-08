@@ -28,6 +28,8 @@
   },
   "homepage": "https://github.com/ukoloff/j2pcgtsp",
   "devDependencies": {
-    "livescript": "^1.6.0"
+    "livescript": "^1.6.0",
+    "mithril": "^2.0.4",
+    "rollup": "^1.32.1"
   }
 }
