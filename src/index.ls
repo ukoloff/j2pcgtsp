@@ -41,9 +41,6 @@ unless formats.discrete.data
   process.exit!
 
 bounds = formats.discrete.data.bounds
-if formats.dbs.data
-  require! \./dbs/bounds : dbs-bounds
-  bounds = dbs-bounds.union bounds, dbs-bounds formats.dbs.data
 
 for , format of formats
   out? = format.file-name
