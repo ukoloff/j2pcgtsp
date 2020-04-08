@@ -5,6 +5,7 @@ require! <[
   ./discrete
   ./svg
   ./svg/css
+  ./svg/pan
   ./route
 ]>
 
@@ -58,6 +59,7 @@ html = """
 <style>
 #{css}
 </style>
+#{pan}
 </head>
 <body>
 #{svg.open bounds}

@@ -16,11 +16,11 @@ function open bounds
      size.x * (1 + 2 * margin),
      size.y * (1 + 2 * margin)]
     .join ' '
-  }"><g transform = "scale(1, -1)">
+  }"><g><g transform = "scale(1, -1)">
   """
 
 function close
   """
 
-  </g></svg>
+  </g></g></svg>
   """
