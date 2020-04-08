@@ -7,6 +7,7 @@ require! <[
   ./svg/css
   ./svg/pan
   ./route
+  ./route/len
 ]>
 
 formats =
@@ -75,3 +76,9 @@ html = """
 </html>
 """
 fs.writeFileSync out, html
+
+if formats.route.data
+  console.log """
+    ---
+    Route length: #{len formats.route.data, formats.discrete.data}
+    """
