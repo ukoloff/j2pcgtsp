@@ -26,6 +26,4 @@ exports <<<
         semicolons: false
     commonjs {extensions}
     resolve {extensions}
-    auto-html do
-      title: 'DBS / JSON / GTSP Visualisation'
-      attributes: {}
+    auto-html attributes: {}
