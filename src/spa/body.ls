@@ -2,6 +2,7 @@ require! <[
   ../m
   ./uploads
   ./formats
+  ./state
 ]>
 
 var upload-button
@@ -28,17 +29,17 @@ exports <<<
           m \tr,
             m \td \DBS
             m \td \.dbs.json
-            m \td m \b formats.dbs.name
+            m \td m \b m \nobr formats.dbs.name
             m \td formats.dbs.info
           m \tr,
             m \td \GTSP
             m \td \.json
-            m \td m \b formats.discrete.name
+            m \td m \b m \nobr formats.discrete.name
             m \td formats.discrete.info
           m \tr,
             m \td \Route
             m \td \.result.txt
-            m \td m \b formats.route.name
+            m \td m \b m \nobr formats.route.name
             m \td formats.route.info
         m \p
         m \input.hidden,
@@ -55,6 +56,13 @@ exports <<<
           'Upload file(s)'
         ' ...or drag-and-drop file(s) onto this page...'
         m \hr
+        if state.route-length
+          [
+            "Route length: #{that}"
+            m \p
+          ]
+        else
+          ''
         m \button,
           type: \button
           disabled: !formats.discrete.data

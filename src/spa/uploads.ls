@@ -1,6 +1,8 @@
 require! <[
   ../m
   ./formats
+  ./state
+  ../route/len
 ]>
 
 module.exports = uploads
@@ -12,10 +14,13 @@ module.exports = uploads
 !function handle-file file
   txt <-! file.text!then
   ok = false
-  for let k, format of formats when !ok
+  for k, format of formats
     try
       data = format.parser txt
       info = format.parser.success data
       format <<< {data, info, file.name}
       ok := true
+      break
+  if formats.discrete.data and formats.route.data
+    state.route-length = len formats.route.data, formats.discrete.data
   m.redraw!
