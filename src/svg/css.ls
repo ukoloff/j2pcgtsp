@@ -10,7 +10,7 @@ svg {
 }
 
 path {
-  stroke-width: 0.16%;
+  stroke-width: 0.5%;
   fill-rule: nonzero;
 }
 
@@ -51,7 +51,7 @@ circle.route {
   fill-opacity: 5%;
   fill: red;
   stroke: navy;
-  stroke-width: 0.1%;
+  stroke-width: 0.3%;
 }
 
 circle.route:hover {

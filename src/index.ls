@@ -5,7 +5,9 @@ require! <[
   ./discrete
   ./svg
   ./svg/css
+  ./svg/pan
   ./route
+  ./route/len
 ]>
 
 formats =
@@ -27,7 +29,7 @@ for file-name in process.argv.slice 2
   for , format of formats
     try
       data = format.parser txt
-      format.parser.success data
+      console.log \Found: format.parser.success data
       format.data = data
       format.file-name = file-name
       ok = true
@@ -58,6 +60,7 @@ html = """
 <style>
 #{css}
 </style>
+#{pan}
 </head>
 <body>
 #{svg.open bounds}
@@ -73,3 +76,9 @@ html = """
 </html>
 """
 fs.writeFileSync out, html
+
+if formats.route.data
+  console.log """
+    ---
+    Route length: #{len formats.route.data, formats.discrete.data}
+    """

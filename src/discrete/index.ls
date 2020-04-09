@@ -20,5 +20,5 @@ function read-json txt
   assert raw.TaskData
   assert raw.Contours
 
-!function success data
-  console.log "Found: #{data.points.length}/#{data.groups.length} points/groups"
+function success data
+  "#{data.points.length}/#{data.groups.length} points/groups"
