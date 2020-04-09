@@ -1,7 +1,10 @@
 require! <[
   ../m
   ./uploads
+  ./formats
 ]>
+
+var upload-button
 
 exports <<<
   oncreate: !->
@@ -13,7 +16,6 @@ exports <<<
         uploads it.data-transfer.files
         false
   view: ->
-    var upload-button
     m.fragment do
       m \h1 document.title = 'View DBS / JSON /GTSP'
       m \form,
@@ -26,18 +28,18 @@ exports <<<
           m \tr,
             m \td \DBS
             m \td \.dbs.json
-            m \td
-            m \td
+            m \td m \b formats.dbs.name
+            m \td formats.dbs.info
           m \tr,
             m \td \GTSP
             m \td \.json
-            m \td
-            m \td
+            m \td m \b formats.discrete.name
+            m \td formats.discrete.info
           m \tr,
             m \td \Route
             m \td \.result.txt
-            m \td
-            m \td
+            m \td m \b formats.route.name
+            m \td formats.route.info
         m \p
         m \input.hidden,
           type: \file
@@ -52,3 +54,10 @@ exports <<<
             upload-button.click!
           'Upload file(s)'
         ' ...or drag-and-drop file(s) onto this page...'
+        m \hr
+        m \button,
+          type: \button
+          disabled: !formats.discrete.data
+          'View!'
+        ' in View mode hit Refresh (F5) to come back to this page'
+
