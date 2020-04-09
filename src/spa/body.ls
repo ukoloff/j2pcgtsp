@@ -57,12 +57,7 @@ exports <<<
         ' ...or drag-and-drop file(s) onto this page...'
         m \hr
         if state.route-length
-          [
-            "Route length: #{that}"
-            m \p
-          ]
-        else
-          ''
+          m \p "Route length: #{that}"
         m \button,
           type: \button
           disabled: !formats.discrete.data
