@@ -55,6 +55,8 @@ exports <<<
             upload-button.click!
           'Upload file(s)'
         ' ...or drag-and-drop file(s) onto this page...'
+        if state.bad-files.length
+          m \p, "Unknown files: #{state.bad-files.join ', '}"
         m \hr
         if state.route-length
           m \p "Route length: #{that}"

@@ -8,6 +8,8 @@ require! <[
 module.exports = uploads
 
 !function uploads files
+  state.bad-files.length = 0
+
   for file in files
     handle-file file
 
@@ -21,6 +23,10 @@ module.exports = uploads
       format <<< {data, info, file.name}
       ok := true
       break
+  if !ok
+    state.bad-files.push file.name
+
   if formats.discrete.data and formats.route.data
     state.route-length = len formats.route.data, formats.discrete.data
+
   m.redraw!
