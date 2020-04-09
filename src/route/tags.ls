@@ -2,16 +2,16 @@
 # SVG tags for route
 #
 require! <[
+  ./points
   ../svg/tag
 ]>
 
 module.exports = tags
 
 function tags route, data
-  points = route.map ->
-    data.iPoints[it] or data.start
-  result = tag points, class: \route
-  for p in points
+  pts = points ...
+  result = tag pts, class: \route
+  for p in pts
     result += """
 
     <circle class="route" cx="#{p.x}" cy="#{p.y}"><title>Point ##{p.id or '-'}
