@@ -2,7 +2,18 @@ require! <[
   ../m
 ]>
 
+function handle-files files
+  alert <| Array.from files .map (.name)
+
 exports <<<
+  oncreate: !->
+    container = it.dom.parent-node
+      ..ondragenter = -> false
+      ..ondragleave = -> false
+      ..ondragover = -> false
+      ..ondrop = ->
+        handle-files it.data-transfer.files
+        false
   view: ->
     var upload-button
     m.fragment do
@@ -36,7 +47,7 @@ exports <<<
           oncreate: !->
             upload-button := it.dom
               ..onchange = !->
-                alert <| Array.from @files .map (.name)
+                handle-files @files
         m \button,
           type: \button
           onclick: !->
