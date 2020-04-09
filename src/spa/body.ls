@@ -1,9 +1,7 @@
 require! <[
   ../m
+  ./uploads
 ]>
-
-function handle-files files
-  alert <| Array.from files .map (.name)
 
 exports <<<
   oncreate: !->
@@ -12,7 +10,7 @@ exports <<<
       ..ondragleave = -> false
       ..ondragover = -> false
       ..ondrop = ->
-        handle-files it.data-transfer.files
+        uploads it.data-transfer.files
         false
   view: ->
     var upload-button
@@ -47,7 +45,7 @@ exports <<<
           oncreate: !->
             upload-button := it.dom
               ..onchange = !->
-                handle-files @files
+                uploads @files
         m \button,
           type: \button
           onclick: !->
