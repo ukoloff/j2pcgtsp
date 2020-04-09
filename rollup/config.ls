@@ -20,7 +20,10 @@ exports <<<
 
   plugins:
     livescript!
-    rollup-plugin-terser.terser!
+    rollup-plugin-terser.terser do
+      output:
+        max_line_len: 80
+        semicolons: false
     commonjs {extensions}
     resolve {extensions}
     auto-html do

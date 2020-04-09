@@ -1,4 +1,15 @@
+require! <[
+  ../m
+]>
+
 module.exports = hello
 
 !function hello
-  alert "Hello, world!"
+  m.mount document.body, body
+
+body =
+  view: ->
+    m.fragment do
+      m \h1 'Hello, world!'
+      'Hi there!'
+
