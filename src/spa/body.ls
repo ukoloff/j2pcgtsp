@@ -18,7 +18,7 @@ exports <<<
         false
   view: ->
     m.fragment do
-      m \h1 document.title = 'View DBS / JSON /GTSP'
+      m \h1 document.title = 'View DBS / JSON / GTSP'
       m \form,
         m 'table.formats[border]',
           m \tr,
@@ -66,3 +66,13 @@ exports <<<
           'View!'
         ' in View mode hit Refresh (F5) to come back to this page'
 
+        m \p,
+          "You can save "
+          m \a,
+            href: \index.html
+            target: \_blank
+            download: true
+            type: \application/octet-stream
+            "this file"
+          " (try: Right click + Save as) "
+          "and run it locally"
