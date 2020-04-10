@@ -960,7 +960,8 @@ Dt(this.files)}}}),Tt("button",{type:"button",onclick:function(){Lt.click()}
 },"Upload file(s)")," ...or drag-and-drop file(s) onto this page...",Ot.badFiles.length?Tt("p","Unknown files: "+Ot.badFiles.join(", ")):void 0,Tt("hr"),(t=Ot.routeLength)?Tt("p","Route length: "+t):void 0,Tt("button",{
 type:"button",disabled:!It.discrete.data,onclick:Bt
 },"View!")," in View mode hit Refresh (F5) to come back to this page",Tt("p","You can save ",Tt("a",{
-href:"j2gtsp.html",target:"_blank",download:!0,type:"application/octet-stream"
+href:"j2gtsp.html",target:"_blank",download:"j2gtsp.html",
+type:"application/octet-stream"
 },"this file")," (try: Right click + Save as) ","and run it locally")))}
 },setTimeout((function(){Rt.mount(document.head,Vt),Rt.mount(document.body,qt)
 }))}()
