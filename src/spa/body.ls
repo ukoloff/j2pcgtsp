@@ -77,7 +77,7 @@ exports <<<
         m \p,
           "You can save "
           m \a,
-            href: \index.html
+            href: \j2gtsp.html
             target: \_blank
             download: true
             type: \application/octet-stream
