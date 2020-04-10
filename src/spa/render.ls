@@ -1,4 +1,5 @@
 require! <[
+  svg-pan-zoom
   ../m
   ../svg
   ./formats
@@ -10,6 +11,9 @@ module.exports = render
   m.mount document.body, SVG
 
 SVG =
+  oncreate: !->
+    svg-pan-zoom it.dom,
+      controlIconsEnabled: true
   view: ->
     bounds = formats.discrete.data.bounds
 
