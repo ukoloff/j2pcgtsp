@@ -3,19 +3,26 @@ require! <[
   ./uploads
   ./formats
   ./state
+  ./render
 ]>
 
 var upload-button
 
 exports <<<
   oncreate: !->
-    container = it.dom.parent-node
+    it.dom.parent-node
       ..ondragenter = -> false
       ..ondragleave = -> false
       ..ondragover = -> false
       ..ondrop = ->
         uploads it.data-transfer.files
         false
+  onremove: !->
+    it.dom.parent-node
+      ..ondragenter = null
+      ..ondragleave = null
+      ..ondragover = null
+      ..ondrop = null
   view: ->
     m.fragment do
       m \h1 document.title = 'View DBS / JSON / GTSP'
@@ -63,6 +70,7 @@ exports <<<
         m \button,
           type: \button
           disabled: !formats.discrete.data
+          onclick: render
           'View!'
         ' in View mode hit Refresh (F5) to come back to this page'
 

@@ -21,7 +21,7 @@ module.exports = uploads
       data = format.parser txt
       info = format.parser.success data
       format <<< {data, info, file.name}
-      ok := true
+      ok = true
       break
   if !ok
     state.bad-files.push file.name
