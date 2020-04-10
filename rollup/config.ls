@@ -1,13 +1,11 @@
 require! <[
+  @rollup/plugin-commonjs
+  @rollup/plugin-node-resolve
   rollup-plugin-terser
   ./livescript
+  ./html
 ]>
 
-require! {
-  \@rollup/plugin-commonjs : commonjs
-  \@rollup/plugin-node-resolve : resolve
-  \@rollup/plugin-html : auto-html
-}
 extensions = <[ .js .ls ]>
 
 exports <<<
@@ -24,6 +22,6 @@ exports <<<
       output:
         max_line_len: 80
         semicolons: false
-    commonjs {extensions}
-    resolve {extensions}
-    auto-html attributes: {}
+    plugin-commonjs {extensions}
+    plugin-node-resolve {extensions}
+    html!

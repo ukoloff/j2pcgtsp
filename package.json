@@ -28,8 +28,8 @@
   "homepage": "https://github.com/ukoloff/j2pcgtsp",
   "devDependencies": {
     "@rollup/plugin-commonjs": "^11.0.2",
-    "@rollup/plugin-html": "^0.1.1",
     "@rollup/plugin-node-resolve": "^7.1.1",
+    "@rollup/pluginutils": "^3.0.8",
     "livescript": "^1.6.0",
     "mithril": "^2.0.4",
     "rollup": "^1.32.1",
