@@ -1,7 +1,7 @@
 #
 # Read DBS in JSON format
 #
-require! <[ assert ]>
+require! <[ ../assert ]>
 
 module.exports = read-DBS
 read-DBS.success = success

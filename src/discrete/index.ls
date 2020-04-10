@@ -1,5 +1,5 @@
 require! <[
-  assert
+  ../assert
   ./unapply
   ./reindex
   ./bounds

@@ -1,15 +1,16 @@
 #
 # Calculate length of route
 #
+require! <[ ./points ]>
+
 module.exports = len
 
 function len route, data
-  points = route.map ->
-    data.iPoints[it] or data.start
+  pts = points ...
   result = 0
-  if points.length
-    prev = points[* - 1]
-  for pt in points
+  if pts.length
+    prev = pts[* - 1]
+  for pt in pts
     result += distance prev, pt
     prev = pt
   result

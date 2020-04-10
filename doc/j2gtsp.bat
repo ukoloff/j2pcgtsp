@@ -1,1 +1,0 @@
-@node j2gtsp %*
