@@ -79,7 +79,7 @@ exports <<<
           m \a,
             href: \j2gtsp.html
             target: \_blank
-            download: true
+            download: \j2gtsp.html
             type: \application/octet-stream
             "this file"
           " (try: Right click + Save as) "
