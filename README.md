@@ -1,7 +1,8 @@
 # j2pcgtsp
-Toolbox for JSON / [PCGTSP] interconnection
 
-![GitHubPages](https://github.com/ukoloff/j2pcgtsp/workflows/GitHubPages/badge.svg)
+[![GitHubPages](https://github.com/ukoloff/j2pcgtsp/workflows/GitHubPages/badge.svg)](https://github.com/ukoloff/j2pcgtsp/actions?query=workflow:GitHubPages)
+
+Toolbox for JSON / [PCGTSP] interconnection
 
 To run goto
 https://ukoloff.github.io/j2pcgtsp/
