@@ -22,8 +22,8 @@ jobs:
       - name: Build
         run:  npm test
 
-      - name: Upload artifact(s)
-        uses: actions/upload-artifact@v1
-        with:
-          name: www
-          path: j2gtsp
+      - name: View environment
+        run:  env
+
+      - name: View remote
+        run:  git remote -v
