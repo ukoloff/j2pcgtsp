@@ -13,10 +13,6 @@ jobs:
       - name: Check out
         uses: actions/checkout@v2
 
-      - name: Get commit name
-        id: commit_name
-        run: echo "::set-env CMMT=`git log -1 --format=%h:\t%s`"
-
       - name: Check out WWW
         uses: actions/checkout@v2
         with:
@@ -40,5 +36,6 @@ jobs:
           git add --all
           git config user.email "none"
           git config user.name "Publisher"
-          git commit -m "$CMMT"
+          git -C .. log -1 --format=%h:\t%s > ../.commit
+          git commit -F ../.commit
           git push
