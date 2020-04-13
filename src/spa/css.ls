@@ -20,4 +20,8 @@ table.formats {
 .hidden {
   display: none;
 }
+
+h2 {
+  border-top: 1px dashed black;
+}
 """
