@@ -33,6 +33,7 @@ jobs:
         run: |
           rm -rf *
           cp -r ../j2gtsp/* .
+          rm *.map
           git add --all
           git config user.email "none"
           git config user.name "Publisher"
