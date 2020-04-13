@@ -28,14 +28,11 @@ jobs:
       - name: Build
         run:  npm test
 
-      - name: Upload repo
-        uses: actions/upload-artifact@v1
-        with:
-          name: uno
-          path: .git
-
-      - name: Upload repo II
-        uses: actions/upload-artifact@v1
-        with:
-          name: uno
-          path: www/.git
+      - name: Copy data
+        working-directory: www
+        run: |
+          rm -rf *
+          cp -r ../j2gtsp/* .
+          git add --all
+          git commit -m "Test commit"
+          git push

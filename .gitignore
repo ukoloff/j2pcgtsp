@@ -106,3 +106,4 @@ dist
 /package-lock.json
 /j2gtsp
 /data/*.html
+/www
