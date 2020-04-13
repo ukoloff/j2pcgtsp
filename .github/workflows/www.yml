@@ -13,6 +13,12 @@ jobs:
       - name: Check out
         uses: actions/checkout@v2
 
+      - name: Check out WWW
+        uses: actions/checkout@v2
+        with:
+          ref: www
+          path: www
+
       - name: Use Node.js
         uses: actions/setup-node@v1
 
@@ -22,8 +28,14 @@ jobs:
       - name: Build
         run:  npm test
 
-      - name: View environment
-        run:  env
+      - name: Upload repo
+        uses: actions/upload-artifact@v1
+        with:
+          name: uno
+          path: .git
 
-      - name: View remote
-        run:  git remote -v
+      - name: Upload repo II
+        uses: actions/upload-artifact@v1
+        with:
+          name: uno
+          path: www/.git
