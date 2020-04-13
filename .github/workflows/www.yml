@@ -28,7 +28,7 @@ jobs:
       - name: Build
         run:  npm test
 
-      - name: Copy data
+      - name: Publish to GitHub Pages
         working-directory: www
         run: |
           rm -rf *
@@ -36,7 +36,7 @@ jobs:
           rm *.map
           git add --all
           git config user.email "none"
-          git config user.name "Publisher"
+          git config user.name "GitHub Pages Publisher"
           git -C .. log -1 --format="%h: %s" > ../.commit
           git commit -F ../.commit || true
           git push
