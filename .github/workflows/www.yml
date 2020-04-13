@@ -15,10 +15,7 @@ jobs:
 
       - name: Get commit name
         id: commit_name
-        run: echo "::set-output cmmt=`git log -1 --format=%h:\t%s`"
-
-      - name: Check commit name
-        run: echo ${{ steps.commit_name.cmmt }}
+        run: echo "::set-env CMMT=`git log -1 --format=%h:\t%s`"
 
       - name: Check out WWW
         uses: actions/checkout@v2
@@ -40,9 +37,8 @@ jobs:
         run: |
           rm -rf *
           cp -r ../j2gtsp/* .
-          rm *.map
           git add --all
           git config user.email "none"
           git config user.name "Publisher"
-          git commit -m "${{ steps.commit_name.cmmt }}"
+          git commit -m "$CMMT"
           git push
