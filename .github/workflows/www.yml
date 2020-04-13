@@ -33,9 +33,10 @@ jobs:
         run: |
           rm -rf *
           cp -r ../j2gtsp/* .
+          rm *.map
           git add --all
           git config user.email "none"
           git config user.name "Publisher"
-          git -C .. log -1 --format=%h:\t%s > ../.commit
+          git -C .. log -1 --format="%h: %s" > ../.commit
           git commit -F ../.commit
           git push
