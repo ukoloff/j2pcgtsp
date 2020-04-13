@@ -38,5 +38,5 @@ jobs:
           git config user.email "none"
           git config user.name "GitHub Pages Publisher"
           git -C .. log -1 --format="%h: %s" > ../.commit
-          git commit -F ../.commit || true
+          git commit -F ../.commit --allow-empty
           git push
