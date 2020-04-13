@@ -34,5 +34,7 @@ jobs:
           rm -rf *
           cp -r ../j2gtsp/* .
           git add --all
+          git config user.email "none"
+          git config user.name "Publisher"
           git commit -m "Test commit"
           git push
