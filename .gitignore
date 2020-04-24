@@ -107,3 +107,4 @@ dist
 /j2gtsp
 /data/*.html
 /www
+pnpm-lock.yaml
