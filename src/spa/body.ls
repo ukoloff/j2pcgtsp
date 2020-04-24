@@ -88,5 +88,5 @@ exports <<<
                 download: \j2gtsp.html
                 type: \application/octet-stream
                 "this file"
-              " (try: Right click + Save as) "
+              " (Hint: Right click + Save as) "
               "and run it locally"
