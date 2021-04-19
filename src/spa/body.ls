@@ -49,18 +49,16 @@ exports <<<
             m \td m \b m \nobr formats.route.name
             m \td formats.route.info
         m \p
-        m \label, 'Starting point ',
+        m \label, 'Starting point: ',
           m \select,
-            m \option,
-              value: -1,
-              \Autodetect
-            m \option,
-              value: 1
-              'First contour (new format)'
-            m \option,
-              value: 0
-              'Last contour (old format)'
-
+            oncreate: ->
+              try
+                it.dom.selected-index = formats.route.start-point-mode = local-storage['starting-pont'] or 0
+            onchange: ->
+              try
+                local-storage['starting-pont'] = formats.route.start-point-mode = @selected-index
+            for z in 'Autodetect;First contour (new format);Last contour (old format)'.split \;
+              m \option, z
         m \p
         m \input.hidden,
           type: \file
