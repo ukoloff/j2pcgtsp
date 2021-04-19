@@ -49,6 +49,19 @@ exports <<<
             m \td m \b m \nobr formats.route.name
             m \td formats.route.info
         m \p
+        m \label, 'Starting point ',
+          m \select,
+            m \option,
+              value: -1,
+              \Autodetect
+            m \option,
+              value: 1
+              'First contour (new format)'
+            m \option,
+              value: 0
+              'Last contour (old format)'
+
+        m \p
         m \input.hidden,
           type: \file
           multiple: true
