@@ -2,7 +2,7 @@ require! <[
   ../m
   ./formats
   ./state
-  ../route/len
+  ./measure
 ]>
 
 module.exports = uploads
@@ -26,7 +26,6 @@ module.exports = uploads
   if !ok
     state.bad-files.push file.name
 
-  if formats.discrete.data and formats.route.data
-    state.route-length = len formats.route.data, formats.discrete.data
+  measure!
 
   m.redraw!

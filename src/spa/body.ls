@@ -4,6 +4,7 @@ require! <[
   ./formats
   ./state
   ./render
+  ./measure
 ]>
 
 var upload-button
@@ -57,6 +58,7 @@ exports <<<
             onchange: ->
               try
                 local-storage['starting-pont'] = formats.route.start-point-mode = @selected-index
+                measure!
             for z in 'Autodetect;First contour (new format);Last contour (old format)'.split \;
               m \option, z
         m \p
