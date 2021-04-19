@@ -4,6 +4,7 @@ require! <[
   ./formats
   ./state
   ./render
+  ./measure
 ]>
 
 var upload-button
@@ -48,6 +49,18 @@ exports <<<
             m \td \.result.txt
             m \td m \b m \nobr formats.route.name
             m \td formats.route.info
+        m \p
+        m \label, 'Starting point: ',
+          m \select,
+            oncreate: ->
+              try
+                it.dom.selected-index = formats.route.start-point-mode = local-storage['starting-pont'] or 0
+            onchange: ->
+              try
+                local-storage['starting-pont'] = formats.route.start-point-mode = @selected-index
+                measure!
+            for z in 'Autodetect;First contour (new format);Last contour (old format)'.split \;
+              m \option, z
         m \p
         m \input.hidden,
           type: \file
