@@ -501,7 +501,7 @@ return t.length+" route point(s)"}
 var $,H,X,W,Y,J=f((function(t,e){var n,o,i,r,s,a
 for(r in n=T,o=U,i=G,e.dbs=n,e.discrete=o,e.route=i,s=e)a=s[r],e[r]={parser:a}
 })),K=(J.dbs,J.discrete,J.route,{routeLength:0,badFiles:[]}),Q=function(t,e){
-return t.map((function(t){return e.iPoints[t]||e.start}))}
+return t.map((function(t){return e.iPoints[t-1]||e.start}))}
 function tt(t){return t*t}function et(t,e){
 return Math.sqrt(tt(t.x-e.x)+tt(t.y-e.y))}$=Q,H=k,X=J,W=K,Y=function(t,e){
 var n,o,i,r,s,a
