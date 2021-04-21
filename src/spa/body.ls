@@ -4,6 +4,7 @@ require! <[
   ./formats
   ./state
   ./render
+  ./save
   ./measure
 ]>
 
@@ -85,7 +86,13 @@ exports <<<
           disabled: !formats.discrete.data
           onclick: render
           'View!'
-        ' in View mode hit Refresh (F5) to come back to this page'
+        ' in View mode hit Back or Refresh (F5) to come back to this page'
+        m \p
+        m \button,
+          type: \button
+          disabled: !formats.discrete.data
+          onclick: save
+          'Export HTML + SVG'
 
         m \h2 \Note:
         m \ul,

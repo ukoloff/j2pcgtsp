@@ -1,5 +1,5 @@
 module.exports = """
-<script src="http://ariutta.github.io/svg-pan-zoom/dist/svg-pan-zoom.min.js"></script>
+<script src="http://bumbu.github.io/svg-pan-zoom/dist/svg-pan-zoom.min.js"></script>
 <script>
   setTimeout(initPan)
   function initPan() {
