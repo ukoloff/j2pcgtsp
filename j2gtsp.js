@@ -492,7 +492,7 @@ return function(t){L(t.TaskData),L(t.Contours)
 return t.points.length+"/"+t.groups.length+" points/groups"}
 var _=H
 function H(t){var e
-if(e=/\bTour Ordering\s*:\s*\[([\s\d,]*)\]/.exec(t))return e[1].split(/\D+/).filter((function(t){
+if(e=/\bTour(?: \s+Ordering)?\s*:\s*\[([\s\d,]*)\]/.exec(t))return e[1].split(/\D+/).filter((function(t){
 return t})).map(Number)
 throw Error("GTSP route not found")}H.success=function(t){
 return t.length+" route point(s)"}
