@@ -6,7 +6,7 @@ module.exports = read
 read.success = success
 
 function read text
-  if /\bTour Ordering\s*:\s*\[([\s\d,]*)\]/.exec text
+  if /\bTour(?:\s+Ordering)?\s*:\s*\[([\s\d,]*)\]/.exec text
     that[1]
       .split /\D+/
       .filter -> it # .compact!
