@@ -16,11 +16,11 @@ path {
 
 path.DBS {
   fill: \#cdff00;
-  stroke: blue;
+  stroke: black;
 }
 
 path.DBS:first-of-type {
-  fill: silver;
+  fill: none;
 }
 
 path.DBS:hover {
@@ -56,7 +56,7 @@ circle.route {
 
 circle.pierce {
   r: 0.2%;
-  fill-opacity: 5%;
+  # fill-opacity: 5%;
   fill: \#00ff00;
   stroke: navy;
   stroke-width: 0.1%;
@@ -65,6 +65,11 @@ circle.pierce {
 circle.route:hover {
   fill-opacity: 75%;
   stroke: lime;
+}
+
+circle.pierce:hover {
+  fill: yellow;
+  stroke: red;
 }
 
 @keyframes dash {
