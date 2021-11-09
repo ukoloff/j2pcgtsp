@@ -10,7 +10,10 @@ function open bounds
     y: bounds.max.y - bounds.min.y
 
   """
-  <svg height="100%" width="100%" viewBox="#{
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    height="100%" width="100%"
+    viewBox="#{
     [bounds.min.x - size.x * margin,
     -bounds.max.y - size.y * margin,
      size.x * (1 + 2 * margin),
