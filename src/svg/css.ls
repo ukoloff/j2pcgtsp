@@ -52,6 +52,7 @@ circle.route {
   fill: red;
   stroke: navy;
   stroke-width: 0.1%;
+  display: none;
 }
 
 circle.pierce {
