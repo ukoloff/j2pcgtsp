@@ -46,18 +46,8 @@ path.route {
   fill: none;
 }
 
-circle.route {
-  r: 0.3%;
-  fill-opacity: 5%;
-  fill: red;
-  stroke: navy;
-  stroke-width: 0.1%;
-  display: none;
-}
-
 circle.pierce {
   r: 0.2%;
-  # fill-opacity: 5%;
   fill: \#00ff00;
   stroke: navy;
   stroke-width: 0.1%;
