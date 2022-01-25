@@ -9,12 +9,16 @@ require! <[
 extensions = <[ .js .ls ]>
 
 exports <<<
-  input: \./src
+  input: \./src/cli
 
   output:
-    file: \j2gtsp/j2gtsp.js
-    format: \iife
+    file: \j2gtsp/cli.js
+    format: \cjs
     sourcemap: true
+
+  external:
+    \fs
+    \process
 
   plugins:
     livescript!
