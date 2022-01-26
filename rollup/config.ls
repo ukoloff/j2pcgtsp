@@ -16,9 +16,7 @@ exports <<<
     format: \cjs
     sourcemap: true
 
-  external:
-    \fs
-    \process
+  external: require \module .builtin-modules
 
   plugins:
     livescript!
