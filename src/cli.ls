@@ -1,3 +1,3 @@
 require!<[fs process]>
 
-dbs = fs.openTextFile(process.argv[1] + '.dbs.json')
+dbs = fs.read-file-sync(process.argv[2] + '.dbs.json')

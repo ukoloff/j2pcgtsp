@@ -9,10 +9,13 @@ require! <[
 extensions = <[ .js .ls ]>
 
 exports <<<
-  input: \./src/cli
+  input:
+    j2gtsp: \./src
+    cli: \./src/cli
 
   output:
-    file: \j2gtsp/cli.js
+    # file: \j2gtsp/cli.js
+    dir: \j2gtsp
     format: \cjs
     sourcemap: true
 
