@@ -9,9 +9,7 @@ function html options = {}
   generate-bundle: make-html
 
 !function make-html output, bundle
-  N = 0
   for , file of bundle when file.is-entry
-    continue  if N++
     @emit-file do
       type: \asset
       source: build-html file.file-name
@@ -20,6 +18,7 @@ function html options = {}
       type: \asset
       source: build-html void file.code
       file-name: change-ext file.file-name
+    break
 
 function change-ext file, ext = \.html
   z = path.parse file
