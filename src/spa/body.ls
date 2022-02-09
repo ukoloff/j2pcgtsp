@@ -62,6 +62,11 @@ exports <<<
                 measure!
             for z in 'Autodetect;First contour (new format);Last contour (old format)'.split \;
               m \option, z
+        m \br
+        m \label,
+          m \input, type: \checkbox
+          'Show control icons '
+          m \i '(Hit X to swap)'
         m \p
         m \input.hidden,
           type: \file
