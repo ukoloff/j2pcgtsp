@@ -15,8 +15,8 @@ module.exports = render
 
 SVG =
   oncreate: !->
-    # svg-pan-zoom it.dom,
-    #   controlIconsEnabled: true
+    svg-pan-zoom it.dom,
+      controlIconsEnabled: true
   view: ->
     m.trust graphics!
 

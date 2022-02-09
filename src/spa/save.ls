@@ -18,6 +18,7 @@ function html
   <style>
   #{ css }
   </style>
+  #{ pan }
   </head><body>
   #{ graphics! }
   </body></html>
