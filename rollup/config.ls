@@ -1,12 +1,13 @@
 require! <[
   @rollup/plugin-commonjs
   @rollup/plugin-node-resolve
+  @rollup/plugin-json
   rollup-plugin-terser
   ./livescript
   ./html
 ]>
 
-extensions = <[ .js .ls ]>
+extensions = <[ .js .ls .json ]>
 
 exports <<<
   input:
@@ -22,6 +23,7 @@ exports <<<
   external: require \module .builtin-modules
 
   plugins:
+    plugin-json!
     livescript!
     rollup-plugin-terser.terser do
       output:
