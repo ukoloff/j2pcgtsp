@@ -53,10 +53,10 @@ exports <<<
         m \p
         m \label, 'Starting point: ',
           m \select,
-            oncreate: ->
+            oncreate: !->
               try
                 it.dom.selected-index = formats.route.start-point-mode = local-storage['starting-pont'] or 0
-            onchange: ->
+            onchange: !->
               try
                 local-storage['starting-pont'] = formats.route.start-point-mode = @selected-index
                 measure!
@@ -64,9 +64,13 @@ exports <<<
               m \option, z
         m \br
         m \label,
-          m \input, type: \checkbox
-          'Show control icons '
-          m \i '(Hit X to swap)'
+          m \input,
+            type: \checkbox
+            checked: !!local-storage[\hide-icons]
+            onclick: !->
+              try
+                local-storage[\hide-icons] = if @checked then \+ else ''
+          'Hide control icons'
         m \p
         m \input.hidden,
           type: \file
