@@ -10,6 +10,8 @@ require! <[
   ./measure
 ]>
 
+var upload-button
+
 exports <<<
   oncreate: !->
     it.dom.parent-node
@@ -26,7 +28,6 @@ exports <<<
       ..ondragover = null
       ..ondrop = null
   view: ->
-    var upload-button
     m.fragment do
       m \h1 document.title = 'View DBS / JSON / GTSP'
       m \form,
