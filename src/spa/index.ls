@@ -2,6 +2,7 @@ require! <[
   ../m
   ./head
   ./body
+  ./render
 ]>
 
 module.exports = hello

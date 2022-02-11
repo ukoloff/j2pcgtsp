@@ -3,7 +3,7 @@ require! <[
   ./uploads
   ../model/formats
   ../model/state
-  ./render
+  ../model/params
   ./save
   ./measure
 ]>
@@ -55,10 +55,10 @@ exports <<<
           m \select,
             oncreate: !->
               try
-                it.dom.selected-index = formats.route.start-point-mode = local-storage['starting-pont'] or 0
+                it.dom.selected-index = params.start-point-mode = Number local-storage['starting-pont']
             onchange: !->
               try
-                local-storage['starting-pont'] = formats.route.start-point-mode = @selected-index
+                local-storage['starting-pont'] = params.start-point-mode = @selected-index
                 measure!
             for z in 'Autodetect;First contour (new format);Last contour (old format)'.split \;
               m \option, z
@@ -66,10 +66,10 @@ exports <<<
         m \label,
           m \input,
             type: \checkbox
-            checked: !!local-storage[\hide-icons]
+            checked: params.hide-icons = !!local-storage[\hide-icons]
             onclick: !->
               try
-                local-storage[\hide-icons] = if @checked then \+ else ''
+                local-storage[\hide-icons] = params.hide-icons = if @checked then \+ else ''
           'Hide control icons'
         m \p
         m \input.hidden,
@@ -93,7 +93,7 @@ exports <<<
         m \button,
           type: \button
           disabled: !formats.discrete.data
-          onclick: render
+          onclick: params.onrender
           'View!'
         ' in View mode hit Back or Refresh (F5) to come back to this page'
         m \p

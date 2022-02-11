@@ -2,10 +2,15 @@ require! <[
   svg-pan-zoom
   ../m
   ../model/formats
+  ../model/params
   ./graphics
 ]>
 
-module.exports = render
+module.exports = params.onrender =
+  render
+
+# params.onrender = # Install itself to popup
+#   render
 
 !function render
   m.mount document.body, SVG
