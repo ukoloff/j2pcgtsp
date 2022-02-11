@@ -26,7 +26,7 @@ exports <<<
       ..ondragover = null
       ..ondrop = null
   view: ->
-    me = it.state
+    me = @
     m.fragment do
       m \h1 document.title = 'View DBS / JSON / GTSP'
       m \form,
