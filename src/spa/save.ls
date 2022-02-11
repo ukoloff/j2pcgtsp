@@ -18,7 +18,7 @@ function html
   <style>
   #{ css }
   </style>
-  #{ pan }
+  #{ pan! }
   </head><body>
   #{ graphics! }
   </body></html>
