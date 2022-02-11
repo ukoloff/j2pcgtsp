@@ -1,9 +1,9 @@
 require! <[
   ../m
-  ./uploads
   ./notabene
   ./parameters
-  ./inputs
+  ./synopsis
+  ./files
   ../model/formats
   ../model/state
   ../model/params
@@ -11,40 +11,13 @@ require! <[
 ]>
 
 exports <<<
-  oncreate: !->
-    it.dom.parent-node
-      ..ondragenter = -> false
-      ..ondragleave = -> false
-      ..ondragover = -> false
-      ..ondrop = ->
-        uploads it.data-transfer.files
-        false
-  onremove: !->
-    it.dom.parent-node
-      ..ondragenter = null
-      ..ondragleave = null
-      ..ondragover = null
-      ..ondrop = null
   view: ->
-    me = @
     m.fragment do
       m \h1 document.title = 'View DBS / JSON / GTSP'
       m \form,
-        m inputs
+        m synopsis
         m parameters
-        m \input.hidden,
-          type: \file
-          multiple: true
-          oncreate: !->
-            me.upload-button = it.dom
-              ..onchange = !->
-                uploads @files
-        m \button,
-          type: \button
-          onclick: !->
-            me.upload-button.click!
-          'Upload file(s)'
-        ' ...or drag-and-drop file(s) onto this page...'
+        m files
         if state.bad-files.length
           m \p, "Unknown files: #{state.bad-files.join ', '}"
         m \hr
