@@ -5,7 +5,7 @@ function tag points, attributes = {}
   if "string" != typeof points
     points = path points
   attrs = ""
-  for k, v of attributes
+  for k, v of attributes when k != \title
     attrs += """ #{k}="#{v}"
     """
   """
