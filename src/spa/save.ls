@@ -1,5 +1,5 @@
 require! <[
-  ./formats
+  ../model/formats
   ../svg/css
   ./graphics
   ../svg/pan

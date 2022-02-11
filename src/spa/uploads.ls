@@ -1,7 +1,7 @@
 require! <[
   ../m
-  ./formats
-  ./state
+  ../model/formats
+  ../model/state
   ./measure
 ]>
 

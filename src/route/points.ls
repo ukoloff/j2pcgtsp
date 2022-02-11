@@ -1,7 +1,7 @@
 #
 # Get route point
 #
-require! \../spa/formats
+require! \../model/formats
 
 module.exports = points
 

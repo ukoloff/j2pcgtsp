@@ -1,6 +1,6 @@
 require! <[
   ../svg
-  ./formats
+  ../model/formats
 ]>
 
 module.exports = graphics

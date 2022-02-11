@@ -1,8 +1,8 @@
 require! <[
   ../m
   ./uploads
-  ./formats
-  ./state
+  ../model/formats
+  ../model/state
   ./render
   ./save
   ./measure

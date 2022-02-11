@@ -1,7 +1,7 @@
 require! <[
   svg-pan-zoom
   ../m
-  ./formats
+  ../model/formats
   ./graphics
 ]>
 
