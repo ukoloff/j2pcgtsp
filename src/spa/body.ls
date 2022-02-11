@@ -10,8 +10,6 @@ require! <[
   ./measure
 ]>
 
-var upload-button
-
 exports <<<
   oncreate: !->
     it.dom.parent-node
@@ -28,6 +26,7 @@ exports <<<
       ..ondragover = null
       ..ondrop = null
   view: ->
+    me = it.state
     m.fragment do
       m \h1 document.title = 'View DBS / JSON / GTSP'
       m \form,
@@ -57,13 +56,13 @@ exports <<<
           type: \file
           multiple: true
           oncreate: !->
-            upload-button := it.dom
+            me.upload-button = it.dom
               ..onchange = !->
                 uploads @files
         m \button,
           type: \button
           onclick: !->
-            upload-button.click!
+            me.upload-button.click!
           'Upload file(s)'
         ' ...or drag-and-drop file(s) onto this page...'
         if state.bad-files.length
