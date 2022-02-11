@@ -1,6 +1,7 @@
 require! <[
   ../m
   ../model/params
+  ./measure
 ]>
 
 exports <<<

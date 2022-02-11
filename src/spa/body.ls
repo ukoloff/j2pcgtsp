@@ -7,7 +7,6 @@ require! <[
   ../model/state
   ../model/params
   ./save
-  ./measure
 ]>
 
 exports <<<
