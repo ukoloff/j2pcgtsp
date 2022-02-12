@@ -47,8 +47,7 @@ function oops
   for let file in files
     seq .= then ->
       <-! file.text!then
-      if !parse it
-        state.bad-files.push file.name
+      parse it, file.name
 
   <-! seq.then
   measure!
