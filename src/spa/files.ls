@@ -1,6 +1,8 @@
 require! <[
   ../m
-  ./uploads
+  ../model/parse
+  ../model/measure
+  ../model/state
 ]>
 
 exports <<<
@@ -10,7 +12,7 @@ exports <<<
       ..ondragleave = oops
       ..ondragover =  oops
       ..ondrop = ->
-        uploads it.data-transfer.files
+        parse-files it.data-transfer.files
         false
   onremove: !->
     document.body
@@ -27,7 +29,7 @@ exports <<<
         oncreate: !->
           me.upload-button = it.dom
             ..onchange = !->
-              uploads @files
+              parse-files @files
       m \button,
         type: \button
         onclick: !->
@@ -37,3 +39,17 @@ exports <<<
 
 function oops
   false
+
+!function parse-files files
+  state.bad-files.length = 0
+
+  seq = Promise.resolve!
+  for let file in files
+    seq .= then ->
+      <-! file.text!then
+      if !parse it
+        state.bad-files.push file.name
+
+  <-! seq.then
+  measure!
+  m.redraw!
