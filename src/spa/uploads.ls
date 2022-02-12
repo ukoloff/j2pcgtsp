@@ -2,7 +2,7 @@ require! <[
   ../m
   ../model/formats
   ../model/state
-  ./measure
+  ../model/measure
 ]>
 
 module.exports = uploads

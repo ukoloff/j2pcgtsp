@@ -2,8 +2,8 @@
 # Update Route's length
 #
 require! <[
-  ../model/formats
-  ../model/state
+  ./formats
+  ./state
   ../route/len
 ]>
 
