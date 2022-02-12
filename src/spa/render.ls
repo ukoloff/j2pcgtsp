@@ -3,7 +3,7 @@ require! <[
   ../m
   ../model/formats
   ../model/params
-  ./graphics
+  ../model/svg
 ]>
 
 module.exports = params.onrender =
@@ -23,7 +23,7 @@ SVG =
     svg-pan-zoom it.dom,
       control-icons-enabled: !params.hide-icons
   view: ->
-    m.trust graphics!
+    m.trust svg!
 
 !function come-back
   require! <[ ./body ]>
