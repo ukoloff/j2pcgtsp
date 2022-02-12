@@ -1,5 +1,6 @@
 require! <[
   ./svg
+  ./state
   ../svg/css
   ../svg/pan
 ]>
@@ -16,5 +17,16 @@ function html
   #{ pan! }
   </head><body>
   #{ svg! }
+  #{path-len!}
   </body></html>
   """
+
+function path-len
+  if state.route-length
+    """
+    <!--
+    Route Length     : #{that}
+    -->
+    """
+  else
+    ""
