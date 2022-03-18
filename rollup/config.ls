@@ -9,22 +9,15 @@ require! <[
 
 extensions = <[ .js .ls .json ]>
 
-exports <<<
-  input:
-    j2gtsp: \./src
-    cli: \./src/cli
-
+function common
   output:
-    # file: \j2gtsp/cli.js
     dir: \j2gtsp
-    format: \cjs
     sourcemap: true
     plugins:
       rollup-plugin-terser.terser do
         output:
           max_line_len: 80
           semicolons: false
-      html!
       ...
 
   external: require \module .builtin-modules
@@ -34,3 +27,22 @@ exports <<<
     livescript!
     plugin-commonjs {extensions}
     plugin-node-resolve {extensions}
+
+web = common!
+web <<<
+  input:
+    j2gtsp: \./src
+web.output <<<
+  format: \iife
+web.output.plugins.push html!
+
+cli = common!
+cli <<<
+  input:
+    cli: \./src/cli
+cli.output <<<
+  format: \cjs
+
+module.exports =
+  web
+  cli
