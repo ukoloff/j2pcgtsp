@@ -5,6 +5,7 @@ require! <[
   rollup-plugin-terser
   ./livescript
   ./html
+  ./cmd
 ]>
 
 extensions = <[ .js .ls .json ]>
@@ -42,6 +43,7 @@ cli <<<
     cli: \./src/cli
 cli.output <<<
   format: \cjs
+cli.output.plugins.push cmd!
 
 module.exports =
   web
