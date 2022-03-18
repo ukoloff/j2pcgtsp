@@ -19,16 +19,18 @@ exports <<<
     dir: \j2gtsp
     format: \cjs
     sourcemap: true
+    plugins:
+      rollup-plugin-terser.terser do
+        output:
+          max_line_len: 80
+          semicolons: false
+      html!
+      ...
 
   external: require \module .builtin-modules
 
   plugins:
     plugin-json!
     livescript!
-    rollup-plugin-terser.terser do
-      output:
-        max_line_len: 80
-        semicolons: false
     plugin-commonjs {extensions}
     plugin-node-resolve {extensions}
-    html!
