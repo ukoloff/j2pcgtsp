@@ -1,5 +1,6 @@
-require!<[fs process]>
 require!<[
+  fs
+  ./getopt
   ../model/parse
   ../model/formats
   ../model/state
@@ -9,7 +10,8 @@ require!<[
 # dbs = fs.read-file-sync(process.argv[2] + '.dbs.json')
 
 console.log "Reading files..."
-for f, i in process.argv.slice 2
+opts = getopt '?=hfxo:s:'
+for f, i in opts.argv
   console.log "#{i+1}.\t#{f}"
   txt = fs.read-file-sync f, encoding: \utf-8
   if mode = parse txt, f
