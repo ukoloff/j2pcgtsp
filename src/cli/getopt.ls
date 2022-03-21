@@ -26,15 +26,6 @@ function swx switches
   result = {}
   aliases = []
 
-  !function store params
-    unless aliases.length
-      return
-    last = aliases.pop!
-    for option in aliases
-      result[option] = last
-    result[last] = !!params
-    aliases := []
-
   for c in switches
     unless tail
       aliases.push c
@@ -47,5 +38,12 @@ function swx switches
     unless params
       aliases.push c
       tail = 1
-  store!
+  do !function store params
+    unless aliases.length
+      return
+    last = aliases.pop!
+    for option in aliases
+      result[option] = last
+    result[last] = !!params
+    aliases := []
   result
