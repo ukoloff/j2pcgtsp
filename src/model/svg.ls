@@ -10,8 +10,10 @@ function SVG
 
   code = svg.open bounds
 
-  code += require \../dbs/tags <|
-    formats.dbs.data or gtsp2dbs formats.discrete.data
+  code += if formats.dbs.data
+    require \../dbs/tags <| formats.dbs.data
+  else
+    require \../discrete/outline <| formats.discrete.data
   code += require \../discrete/tags <| formats.discrete.data
   if formats.route.data
     code += (require \../route/tags) formats.route.data, formats.discrete.data

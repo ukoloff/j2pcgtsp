@@ -41,6 +41,19 @@ path.part:hover {
   animation: dash 1s linear infinite;
 }
 
+path.cluster {
+  stroke: black;
+  fill: yellow;
+  fill-opacity: 15%;
+}
+
+path.cluster:hover {
+  fill: yellow;
+  fill-opacity: 50%;
+  stroke-dasharray: 1%;
+  animation: dash 1s linear infinite;
+}
+
 path.route {
   stroke: red;
   fill: none;
