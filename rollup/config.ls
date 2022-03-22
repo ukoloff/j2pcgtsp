@@ -1,27 +1,52 @@
 require! <[
   @rollup/plugin-commonjs
   @rollup/plugin-node-resolve
+  @rollup/plugin-json
+  @rollup/plugin-yaml
   rollup-plugin-terser
   ./livescript
   ./html
+  ./cmd
 ]>
 
-extensions = <[ .js .ls ]>
+extensions = <[ .js .ls .json .yml ]>
 
-exports <<<
-  input: \./src
-
+function common
   output:
-    file: \j2gtsp/j2gtsp.js
-    format: \iife
+    dir: \j2gtsp
     sourcemap: true
+    plugins:
+      rollup-plugin-terser.terser do
+        output:
+          max_line_len: 80
+          semicolons: false
+      ...
+
+  external: require \module .builtin-modules
 
   plugins:
+    plugin-json!
+    plugin-yaml!
     livescript!
-    rollup-plugin-terser.terser do
-      output:
-        max_line_len: 80
-        semicolons: false
     plugin-commonjs {extensions}
     plugin-node-resolve {extensions}
-    html!
+
+web = common!
+web <<<
+  input:
+    j2gtsp: \./src
+web.output <<<
+  format: \iife
+web.output.plugins.push html!
+
+cli = common!
+cli <<<
+  input:
+    cli: \./src/cli
+cli.output <<<
+  format: \cjs
+cli.output.plugins.push cmd!
+
+module.exports =
+  web
+  cli

@@ -1,81 +1,23 @@
 require! <[
   ../m
-  ./uploads
-  ./formats
-  ./state
-  ./render
+  ./notabene
+  ./parameters
+  ./synopsis
+  ./files
+  ../model/formats
+  ../model/state
+  ../model/params
   ./save
-  ./measure
 ]>
 
-var upload-button
-
 exports <<<
-  oncreate: !->
-    it.dom.parent-node
-      ..ondragenter = -> false
-      ..ondragleave = -> false
-      ..ondragover = -> false
-      ..ondrop = ->
-        uploads it.data-transfer.files
-        false
-  onremove: !->
-    it.dom.parent-node
-      ..ondragenter = null
-      ..ondragleave = null
-      ..ondragover = null
-      ..ondrop = null
   view: ->
     m.fragment do
       m \h1 document.title = 'View DBS / JSON / GTSP'
       m \form,
-        m 'table.formats[border]',
-          m \tr,
-            m \th \Data
-            m \th \.ext
-            m \th m \nobr 'File name'
-            m 'th[width=100%]' 'Additional info'
-          m \tr,
-            m \td \DBS
-            m \td \.dbs.json
-            m \td m \b m \nobr formats.dbs.name
-            m \td formats.dbs.info
-          m \tr,
-            m \td \GTSP
-            m \td \.json
-            m \td m \b m \nobr formats.discrete.name
-            m \td formats.discrete.info
-          m \tr,
-            m \td \Route
-            m \td \.result.txt
-            m \td m \b m \nobr formats.route.name
-            m \td formats.route.info
-        m \p
-        m \label, 'Starting point: ',
-          m \select,
-            oncreate: ->
-              try
-                it.dom.selected-index = formats.route.start-point-mode = local-storage['starting-pont'] or 0
-            onchange: ->
-              try
-                local-storage['starting-pont'] = formats.route.start-point-mode = @selected-index
-                measure!
-            for z in 'Autodetect;First contour (new format);Last contour (old format)'.split \;
-              m \option, z
-        m \p
-        m \input.hidden,
-          type: \file
-          multiple: true
-          oncreate: !->
-            upload-button := it.dom
-              ..onchange = !->
-                uploads @files
-        m \button,
-          type: \button
-          onclick: !->
-            upload-button.click!
-          'Upload file(s)'
-        ' ...or drag-and-drop file(s) onto this page...'
+        m synopsis
+        m parameters
+        m files
         if state.bad-files.length
           m \p, "Unknown files: #{state.bad-files.join ', '}"
         m \hr
@@ -84,7 +26,7 @@ exports <<<
         m \button,
           type: \button
           disabled: !formats.discrete.data
-          onclick: render
+          onclick: params.onrender
           'View!'
         ' in View mode hit Back or Refresh (F5) to come back to this page'
         m \p
@@ -94,19 +36,4 @@ exports <<<
           onclick: save
           'Export HTML + SVG'
 
-        m \h2 \Note:
-        m \ul,
-          m \li,
-            m \a href: \https://github.com/ukoloff/j2pcgtsp, 'Source code'
-            \@GitHub
-          if location.host
-            m \li,
-              "You can save "
-              m \a,
-                href: \j2gtsp.html
-                target: \_blank
-                download: \j2gtsp.html
-                type: \application/octet-stream
-                "this file"
-              " (Hint: Right click + Save as) "
-              "and run it locally"
+        m notabene

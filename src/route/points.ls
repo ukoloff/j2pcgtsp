@@ -1,7 +1,7 @@
 #
 # Get route point
 #
-require! \../spa/formats
+require! \../model/params
 
 module.exports = points
 
@@ -14,7 +14,7 @@ function points route, data
 # Quick-n-dirty autodetect for rotue format
 # Is fake contour (start point) first or last in job?
 function detect-shift route
-  return switch formats.route.start-point-mode
+  return switch params.start-point-mode
   case 1  # First contour (new format)
     1
   case 2  # Last contour (old format)

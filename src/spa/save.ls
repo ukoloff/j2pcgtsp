@@ -1,28 +1,12 @@
 require! <[
-  ./formats
-  ../svg/css
-  ./graphics
-  ../svg/pan
+  ../model/formats
+  ../model/html
 ]>
 module.exports = save
 
 #
 !function save
   download "#{formats.discrete.name}.html" html!
-
-function html
-  """
-  <!DOCTYPE html>
-  <html><head>
-  <title>#{ document.title }</title>
-  <style>
-  #{ css }
-  </style>
-  #{ pan }
-  </head><body>
-  #{ graphics! }
-  </body></html>
-  """
 
 # https://stackoverflow.com/a/18197511
 !function download filename, text
@@ -36,5 +20,3 @@ function html
     pom.dispatch-event event
   else
     pom.click!
-
-

@@ -10,17 +10,17 @@ svg {
 }
 
 path {
-  stroke-width: 0.5%;
+  stroke-width: 0.1%;
   fill-rule: nonzero;
 }
 
 path.DBS {
-  fill: lime;
-  stroke: blue;
+  fill: \#cdff00;
+  stroke: black;
 }
 
 path.DBS:first-of-type {
-  fill: silver;
+  fill: none;
 }
 
 path.DBS:hover {
@@ -46,12 +46,11 @@ path.route {
   fill: none;
 }
 
-circle.route {
-  r: 0.5%;
-  fill-opacity: 5%;
-  fill: red;
+circle.pierce {
+  r: 0.2%;
+  fill: \#00ff00;
   stroke: navy;
-  stroke-width: 0.3%;
+  stroke-width: 0.1%;
 }
 
 circle.route:hover {
@@ -59,12 +58,17 @@ circle.route:hover {
   stroke: lime;
 }
 
+circle.pierce:hover {
+  fill: yellow;
+  stroke: red;
+}
+
 @keyframes dash {
   from {
-    stroke-dashoffset: 0%;
+  stroke-dashoffset: 0%;
   }
   to {
-    stroke-dashoffset: -2%;
+  stroke-dashoffset: -2%;
   }
 }
 """

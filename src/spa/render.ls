@@ -1,11 +1,16 @@
 require! <[
   svg-pan-zoom
   ../m
-  ./formats
-  ./graphics
+  ../model/formats
+  ../model/params
+  ../model/svg
 ]>
 
-module.exports = render
+module.exports = params.onrender =
+  render
+
+# params.onrender = # Install itself to popup
+#   render
 
 !function render
   m.mount document.body, SVG
@@ -16,9 +21,9 @@ module.exports = render
 SVG =
   oncreate: !->
     svg-pan-zoom it.dom,
-      controlIconsEnabled: true
+      control-icons-enabled: !params.hide-icons
   view: ->
-    m.trust graphics!
+    m.trust svg!
 
 !function come-back
   require! <[ ./body ]>
