@@ -1,5 +1,6 @@
 require!<[
   fs
+  path
   ./getopt
   ./options
   ../model/parse
@@ -50,6 +51,13 @@ module.exports = run
     console.log "Route length:", that
 
   out = formats.discrete.name + ".html"
+  if argv.o and (try fs.stat-sync argv.o .is-directory!)
+    out = path.join argv.o, path.basename out
+
   console.log "Writing to:\n\t#{out}"
+
+  if !argv.f and fs.exists-sync out
+    throw Error "Skipping existing file: #{out}"
+
   fs.write-file-sync out, html!, encoding: \utf-8
   console.log "That's all folks!"
