@@ -26,7 +26,7 @@ function cmd options = {}
         goto :EOF */0;
         #{file.code}
       """
-      file-name: \jsgtsp.bat
+      file-name: \j2gtsp.bat
     break
 
 function build-html url, contents
