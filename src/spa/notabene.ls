@@ -29,7 +29,7 @@ links =
         " (Hint: Right click + Save as) "
         "and run it locally"
       m \li,
-        "Command line (CLI) version:"
+        "Command line (CLI) version (Node.js required):"
         m \ul,
           m \li,
             "For ",
@@ -39,6 +39,7 @@ links =
               download: \j2gtsp
               type: \application/octet-stream
               "Linux"
+            " // chmod +x j2gtsp"
           m \li,
             "For ",
             m 'a',
