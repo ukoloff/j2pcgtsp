@@ -1,5 +1,6 @@
 require!<[
   fs
+  process
   ./getopt
   ./options
   ../model/parse
@@ -9,9 +10,14 @@ require!<[
   ../model/html
 ]>
 
+parser = getopt options
+argv = parser!
+if argv.h or !argv.length
+  parser.help!
+  process.exit 1
+
 console.log "Reading files..."
-opts = getopt '?=hfxo:s:'
-for f, i in opts.argv
+for f, i in argv
   console.log "#{i+1}.\t#{f}"
   txt = fs.read-file-sync f, encoding: \utf-8
   if mode = parse txt, f
