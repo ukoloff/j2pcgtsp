@@ -1,5 +1,6 @@
 require! <[
   ../m
+  ../homepage
 ]>
 
 exports <<<
@@ -9,7 +10,7 @@ exports <<<
         m \ul,
           m \li,
             m \a,
-              href: require \../../package .homepage
+              href: homepage.homepage
               target: \_blank
               'Source code'
             \@GitHub
