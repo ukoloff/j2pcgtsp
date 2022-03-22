@@ -5,6 +5,7 @@ require!<[
   ../model/parse
   ../model/formats
   ../model/state
+  ../model/params
   ../model/measure
   ../model/html
 ]>
@@ -17,6 +18,18 @@ module.exports = run
   if argv.h or !argv.length
     parser.help!
     return
+
+  params.hide-icons = argv.c
+  if argv.s
+    params.start-point-mode = switch argv.s.char-at 0 .toLowerCase!
+    case 'a'
+      0
+    case 'f'
+      1
+    case 'l'
+      2
+    default
+      throw Error "Invalid value: --start=#{argv.s}"
 
   console.log "Reading files..."
   for f, i in argv
