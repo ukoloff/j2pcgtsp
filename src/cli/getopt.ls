@@ -1,7 +1,10 @@
 #
 # Process command line
 #
-require!<[process]>
+require!<[
+  process
+  ./homepage
+]>
 
 module.exports = getopt
 
