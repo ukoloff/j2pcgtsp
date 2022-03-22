@@ -3,7 +3,7 @@
 #
 require!<[
   process
-  ./homepage
+  ../homepage
 ]>
 
 module.exports = getopt
@@ -38,7 +38,7 @@ function getopt definitions
       while k.length < len
         k += ' '
       console.log "  -#{k.char-at 0}  --#{k} #{v.help}"
-    console.log "\nSee", (require \../../package).homepage
+    console.log "\nSee", homepage.homepage
 
   parser.help = help
 
