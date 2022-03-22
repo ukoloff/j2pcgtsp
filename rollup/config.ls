@@ -2,13 +2,14 @@ require! <[
   @rollup/plugin-commonjs
   @rollup/plugin-node-resolve
   @rollup/plugin-json
+  @rollup/plugin-yaml
   rollup-plugin-terser
   ./livescript
   ./html
   ./cmd
 ]>
 
-extensions = <[ .js .ls .json ]>
+extensions = <[ .js .ls .json .yml ]>
 
 function common
   output:
@@ -25,6 +26,7 @@ function common
 
   plugins:
     plugin-json!
+    plugin-yaml!
     livescript!
     plugin-commonjs {extensions}
     plugin-node-resolve {extensions}

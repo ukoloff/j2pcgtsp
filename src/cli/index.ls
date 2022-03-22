@@ -1,13 +1,13 @@
 require!<[
   fs
   ./getopt
+  ./options
   ../model/parse
   ../model/formats
   ../model/state
   ../model/measure
   ../model/html
 ]>
-# dbs = fs.read-file-sync(process.argv[2] + '.dbs.json')
 
 console.log "Reading files..."
 opts = getopt '?=hfxo:s:'
