@@ -10,7 +10,6 @@ function SVG
 
   code = svg.open bounds
 
-  # if formats.dbs.data
   code += require \../dbs/tags <|
     formats.dbs.data or gtsp2dbs formats.discrete.data
   code += require \../discrete/tags <| formats.discrete.data
@@ -21,7 +20,10 @@ function SVG
 
 # Build fake DBS for contours
 function gtsp2dbs data
-  data.groups.map ->
+  [
+    partid: "Start point"
+    paths:  [close-path [[data.start.x, data.start.y, 0]]]
+  ].concat data.groups.map ->
     partid: "Cluster##{it.id}"
     paths:
       close-path it.points.map -> [it.x, it.y, 0]
