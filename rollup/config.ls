@@ -4,12 +4,13 @@ require! <[
   @rollup/plugin-json
   @rollup/plugin-yaml
   rollup-plugin-terser
+  rollup-plugin-styles
   ./livescript
   ./html
   ./cmd
 ]>
 
-extensions = <[ .js .ls .json .yml ]>
+extensions = <[ .js .ls .json .yml .styl ]>
 
 function common
   output:
@@ -25,6 +26,8 @@ function common
   external: require \module .builtin-modules
 
   plugins:
+    rollup-plugin-styles do
+      minimize: true
     plugin-json!
     plugin-yaml!
     livescript!

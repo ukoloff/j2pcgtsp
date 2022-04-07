@@ -1,7 +1,7 @@
 require! <[
   ./svg
   ./state
-  ../svg/css
+  ../svg/dbs
   ../svg/pan
 ]>
 module.exports = html
@@ -12,7 +12,7 @@ function html
   <html><head>
   <title>PCGTSP Visualization</title>
   <style>
-  #{ css }
+  #{ dbs }
   </style>
   #{ pan! }
   </head><body>
