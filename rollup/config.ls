@@ -26,7 +26,8 @@ function common
   external: require \module .builtin-modules
 
   plugins:
-    rollup-plugin-styles!
+    rollup-plugin-styles do
+      minimize: true
     plugin-json!
     plugin-yaml!
     livescript!
