@@ -10,7 +10,8 @@ svg {
 }
 
 path {
-  stroke-width: 0.1%;
+  stroke-width: 1px;
+  vector-effect: non-scaling-stroke;
   fill-rule: nonzero;
 }
 
@@ -63,7 +64,8 @@ circle.pierce {
   r: 0.2%;
   fill: \#00ff00;
   stroke: navy;
-  stroke-width: 0.1%;
+  stroke-width: 1px;
+  vector-effect: non-scaling-stroke;
 }
 
 circle.route:hover {
