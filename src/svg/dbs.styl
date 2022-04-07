@@ -12,42 +12,42 @@ path
   vector-effect: non-scaling-stroke
   fill-rule: nonzero
 
-path.DBS
-  fill: #cdff00
-  stroke: black
+  &.DBS
+    fill: #cdff00
+    stroke: black
 
-path.DBS:first-of-type
-  fill: none
+    &:first-of-type
+      fill: none
 
-path.DBS:hover
-  stroke-dasharray: 1%
-  animation: dash 1s linear infinite
+    &:hover
+      stroke-dasharray: 1%
+      animation: dash 1s linear infinite
 
-path.part
-  fill: white
-  fill-opacity: 0%
-  stroke: black
+  &.part
+    fill: white
+    fill-opacity: 0%
+    stroke: black
 
-path.part:hover
-  fill: yellow
-  fill-opacity: 50%
-  stroke-dasharray: 1%
-  animation: dash 1s linear infinite
+    &:hover
+      fill: yellow
+      fill-opacity: 50%
+      stroke-dasharray: 1%
+      animation: dash 1s linear infinite
 
-path.cluster
-  stroke: black
-  fill: yellow
-  fill-opacity: 15%
+  &.cluster
+    stroke: black
+    fill: yellow
+    fill-opacity: 15%
 
-path.cluster:hover
-  fill: yellow
-  fill-opacity: 50%
-  stroke-dasharray: 1%
-  animation: dash 1s linear infinite
+    &:hover
+      fill: yellow
+      fill-opacity: 50%
+      stroke-dasharray: 1%
+      animation: dash 1s linear infinite
 
-path.route
-  stroke: red
-  fill: none
+  &.route
+    stroke: red
+    fill: none
 
 circle.pierce
   r: 0.2%
@@ -56,13 +56,13 @@ circle.pierce
   stroke-width: 1px
   vector-effect: non-scaling-stroke
 
+  &:hover
+    fill: yellow
+    stroke: red
+
 circle.route:hover
   fill-opacity: 75%
   stroke: lime
-
-circle.pierce:hover
-  fill: yellow
-  stroke: red
 
 @keyframes dash
   from
