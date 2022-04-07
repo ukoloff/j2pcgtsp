@@ -27,7 +27,7 @@ function common
 
   plugins:
     rollup-plugin-styles do
-      minimize: true
+      minimize: !true
     plugin-json!
     plugin-yaml!
     livescript!

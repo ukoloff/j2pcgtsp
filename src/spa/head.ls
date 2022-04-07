@@ -5,5 +5,5 @@ require! <[
 exports <<<
   view: ->
     m.fragment do
-      m \style require \./css
+      m \style require \./spa
       m \style require \../svg/css
