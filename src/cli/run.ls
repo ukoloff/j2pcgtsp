@@ -51,8 +51,11 @@ module.exports = run
     console.log "Route length:", that
 
   out = formats.discrete.name + ".html"
-  if argv.o and (try fs.stat-sync argv.o .is-directory!)
-    out = path.join argv.o, path.basename out
+  if argv.o
+    if (try fs.stat-sync argv.o .is-directory!)
+      out = path.join argv.o, path.basename out
+    else
+      out = argv.o
 
   console.log "Writing to:\n\t#{out}"
 
