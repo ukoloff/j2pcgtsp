@@ -167,9 +167,9 @@ s=gt.readFileSync(a,{encoding:"utf-8"
 }),(i=xt(s,a))?console.log("\t"+i+":\t"+bt[i].info):console.log("\t^ Unknown format")
 bt.discrete.data||(console.error("Insufficient data"),process.exit(1))
 St(),(u=kt.routeLength)&&console.log("Route length:",u)
-l=bt.discrete.name+".html",e.o&&function(){try{
+l=bt.discrete.name+".html",e.o&&(l=function(){try{
 return gt.statSync(e.o).isDirectory()}catch(t){}
-}()&&(l=vt.join(e.o,vt.basename(l)))
+}()?vt.join(e.o,vt.basename(l)):e.o)
 if(console.log("Writing to:\n\t"+l),!e.f&&gt.existsSync(l))throw Error("Skipping existing file: "+l)
 gt.writeFileSync(l,Mt(),{encoding:"utf-8"}),console.log("That's all folks!")}
 try{jt()}catch(t){Tt=t,console.log("Error:",Tt.message)}
