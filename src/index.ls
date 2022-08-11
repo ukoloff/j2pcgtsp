@@ -1,1 +1,3 @@
-set-timeout require \./spa
+set-timeout do
+  require \./spa
+  1
