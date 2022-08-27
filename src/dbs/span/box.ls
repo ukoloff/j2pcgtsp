@@ -16,6 +16,6 @@ function bounds span
   if span.b == 0
     return B
   #
-  # C = center span
+  C = center span
   R = radius span
   return B
