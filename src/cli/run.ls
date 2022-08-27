@@ -4,7 +4,7 @@ require!<[
   ./getopt
   ./options
   ../model/parse
-  ../model/formats
+  ../model/name
   ../model/state
   ../model/params
   ../model/measure
@@ -51,7 +51,7 @@ module.exports = run
   if state.route-length
     console.log "Route length:", that
 
-  out = formats.discrete.name + ".html"
+  out = "#{name!}.html"
   if argv.o
     if (try fs.stat-sync argv.o .is-directory!)
       out = path.join argv.o, path.basename out

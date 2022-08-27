@@ -1,12 +1,12 @@
 require! <[
-  ../model/formats
+  ../model/name
   ../model/html
 ]>
 module.exports = save
 
 #
 !function save
-  download "#{formats.discrete.name}.html" html!
+  download "#{name!}.html" html!
 
 # https://stackoverflow.com/a/18197511
 !function download filename, text
