@@ -18,7 +18,7 @@ function bounds span
     return B
   # Arc
   v = vector span
-  turn = [1, span.b]
+  turn = [1, -span.b]
   turn = mul turn, turn
   flags = mul v, turn
   turn[0] = -turn[0]
