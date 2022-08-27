@@ -9,6 +9,7 @@ require!<[
   ../model/params
   ../model/measure
   ../model/html
+  ../model/ready
 ]>
 
 module.exports = run
@@ -41,8 +42,8 @@ module.exports = run
     else
       console.log "\t^ Unknown format"
 
-  if !formats.discrete.data
-    console.error "Insufficient data"
+  if !ready!
+    console.error "Insufficient data to view"
     process.exit 1
 
   measure!
