@@ -4,7 +4,7 @@ require! <[
   ./parameters
   ./synopsis
   ./files
-  ../model/formats
+  ../model/ready
   ../model/state
   ../model/params
   ./save
@@ -25,14 +25,14 @@ exports <<<
           m \p "Route length: #{that}"
         m \button,
           type: \button
-          disabled: !formats.discrete.data
+          disabled: !ready!
           onclick: params.onrender
           'View!'
         ' in View mode hit Back or Refresh (F5) to come back to this page'
         m \p
         m \button,
           type: \button
-          disabled: !formats.discrete.data
+          disabled: !ready!
           onclick: save
           'Export HTML + SVG'
 

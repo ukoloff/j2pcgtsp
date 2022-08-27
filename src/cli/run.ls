@@ -4,11 +4,13 @@ require!<[
   ./getopt
   ./options
   ../model/parse
-  ../model/formats
+  ../model/name
   ../model/state
   ../model/params
   ../model/measure
   ../model/html
+  ../model/ready
+  ../model/formats
 ]>
 
 module.exports = run
@@ -41,8 +43,8 @@ module.exports = run
     else
       console.log "\t^ Unknown format"
 
-  if !formats.discrete.data
-    console.error "Insufficient data"
+  if !ready!
+    console.error "Insufficient data to view"
     process.exit 1
 
   measure!
@@ -50,7 +52,7 @@ module.exports = run
   if state.route-length
     console.log "Route length:", that
 
-  out = formats.discrete.name + ".html"
+  out = "#{name!}.html"
   if argv.o
     if (try fs.stat-sync argv.o .is-directory!)
       out = path.join argv.o, path.basename out
