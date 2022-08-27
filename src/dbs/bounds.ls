@@ -2,7 +2,7 @@
 # Quick-n-dirty bounds calculator
 #
 module.exports = bounds
-bounds.union = union
+# bounds.union = union
 
 function bounds dbs
   result =
@@ -17,6 +17,7 @@ function bounds dbs
         result.max.y = Math.max pt[1], result.max.y ? pt[1]
   result
 
+/*
 function union r1, r2
   return
     min:
@@ -25,3 +26,4 @@ function union r1, r2
     max:
       x: Math.max r1.max.x, r2.max.x
       y: Math.max r1.max.y, r2.max.y
+*/

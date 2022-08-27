@@ -1,22 +1,31 @@
 require! <[
   ../svg
   ./formats
+  ../dbs/box
 ]>
 
 module.exports = SVG
 
 function SVG
-  bounds = formats.discrete.data.bounds
+  bounds = if formats.discrete.data
+    that.bounds
+  else
+    box formats.dbs.data
 
   code = svg.open bounds
 
-  code += if formats.dbs.data
-    require \../dbs/tags <| formats.dbs.data
-  else
-    require \../discrete/outline <| formats.discrete.data
-  code += require \../discrete/tags <| formats.discrete.data
-  if formats.route.data
-    code += (require \../route/tags) formats.route.data, formats.discrete.data
+  if formats.dbs.data
+    code += require \../dbs/tags <| that
+
+  if formats.discrete.data
+    code += (if formats.dbs.data
+      require \../discrete/tags
+    else
+      require \../discrete/outline
+    ) <| that
+    if formats.route.data
+      code += (require \../route/tags) that, formats.discrete.data
+
   code += svg.close!
   code
 
