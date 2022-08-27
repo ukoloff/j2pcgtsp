@@ -10,6 +10,7 @@ require!<[
   ../model/measure
   ../model/html
   ../model/ready
+  ../model/formats
 ]>
 
 module.exports = run
