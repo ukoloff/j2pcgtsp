@@ -5,10 +5,10 @@ require! <[
 module.exports = radius
 
 function radius span
-  Math.abs(1 / span.b + span.b) / 4 * Math.sqrt sum vector span
+  Math.abs(1 / span.b + span.b) / 4 *  len vector span
 
-function sum vec
+function len vec
   result = 0
   for x in vec
-    result += x
-  result
+    result += x * x
+  Math.sqrt result
