@@ -10,14 +10,17 @@ require! <[
   ./cmd
 ]>
 
+module.exports = config
+
 extensions = <[ .js .ls .json .yml .styl ]>
 
-function common
+function common mangle
   output:
     dir: \j2gtsp
     sourcemap: true
     plugins:
       rollup-plugin-terser.terser do
+        mangle: mangle
         output:
           max_line_len: 80
           semicolons: false
@@ -34,22 +37,25 @@ function common
     plugin-commonjs {extensions}
     plugin-node-resolve {extensions}
 
-web = common!
-web <<<
-  input:
-    j2gtsp: \./src
-web.output <<<
-  format: \iife
-web.output.plugins.push html!
+function config args
+  mangle = !args.watch
 
-cli = common!
-cli <<<
-  input:
-    cli: \./src/cli
-cli.output <<<
-  format: \cjs
-cli.output.plugins.push cmd!
+  web = common mangle
+  web <<<
+    input:
+      j2gtsp: \./src
+  web.output <<<
+    format: \iife
+  web.output.plugins.push html!
 
-module.exports =
-  web
-  cli
+  cli = common mangle
+  cli <<<
+    input:
+      cli: \./src/cli
+  cli.output <<<
+    format: \cjs
+  cli.output.plugins.push cmd!
+
+  return
+    web
+    cli
