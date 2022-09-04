@@ -5,8 +5,8 @@
   "description": "Toolbox for JSON / PCGTSP interconnection",
   "main": "./j2gtsp",
   "scripts": {
-    "test": "rollup -c",
-    "start": "rollup -cw"
+    "build": "rollup -c",
+    "debug": "rollup -cw"
   },
   "repository": {
     "type": "git",

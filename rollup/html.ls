@@ -34,6 +34,7 @@ function build-html url, contents
 template = """
 <!DOCTYPE html>
 <html><head>
+<meta charset="utf8">
 <script{{1}}>{{2}}</script>
 </head><body></body></html>
 

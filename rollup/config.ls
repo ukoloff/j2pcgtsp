@@ -14,13 +14,12 @@ module.exports = config
 
 extensions = <[ .js .ls .json .yml .styl ]>
 
-function common mangle
+function common debug
   output:
     dir: \j2gtsp
     sourcemap: true
     plugins:
-      rollup-plugin-terser.terser do
-        mangle: mangle
+      !debug and rollup-plugin-terser.terser do
         output:
           max_line_len: 80
           semicolons: false
@@ -38,9 +37,8 @@ function common mangle
     plugin-node-resolve {extensions}
 
 function config args
-  mangle = !args.watch
 
-  web = common mangle
+  web = common args.watch
   web <<<
     input:
       j2gtsp: \./src
@@ -48,7 +46,7 @@ function config args
     format: \iife
   web.output.plugins.push html!
 
-  cli = common mangle
+  cli = common args.watch
   cli <<<
     input:
       cli: \./src/cli
